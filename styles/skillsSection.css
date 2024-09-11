@@ -1,9 +1,18 @@
-/* body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f0f0f0;
-} */
+.skills-section-preview {
+    width: 100%;
+    /* min-height: 256px; */
+    background-image: url('../assets/images/bg-mountains.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+
+.skills-preview-container {
+    padding: 148px 0;
+    text-align: center;
+}
 
 .skills-wrapper {
     position: relative;

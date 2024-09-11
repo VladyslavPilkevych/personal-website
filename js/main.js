@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.toggle('active');
     });
 
-    const lazyBlocks = document.querySelectorAll('.lazy-block');
+    const lazyBlocks = document.querySelectorAll('.projects-block');
 
     window.addEventListener('scroll', () => {
         lazyBlocks.forEach(block => {
