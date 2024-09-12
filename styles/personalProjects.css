@@ -1,16 +1,5 @@
-.my-projects-section {
-    width: 100%;
+#about {
     background-image: url('../assets/images/bg-sky.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    color: white;
-}
-
-.projects-container {
-    padding: 256px 0;
-    text-align: center;
 }
 
 .projects-section {

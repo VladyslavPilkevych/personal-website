@@ -92,8 +92,8 @@ header {
 }
 
 .dark-bg {
-    width: 100%;
-    height: 100%;
+    /* width: 100%;
+    height: 100%; */
     background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -193,7 +193,8 @@ header {
 
 .scroll-to-top {
     position: fixed;
-    bottom: 20px;
+    /* bottom: 20px; */
+    top: 80px;
     right: 20px;
     width: 40px;
     height: 40px;
@@ -214,91 +215,6 @@ header {
     background-color: #0056b3;
 }
 
-.contact-form {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.contact-form button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 5px;
-}
-
-.contact-form button:hover {
-    background-color: #0056b3;
-}
-
-.contact-form .clear-btn {
-    background-color: #dc3545;
-}
-
-.contact-form .clear-btn:hover {
-    background-color: #c82333;
-}
-
-.notification {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #d9534f;
-    display: none;
-}
-/* .contact-form {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.contact-form button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 5px;
-}
-
-.contact-form button:hover {
-    background-color: #0056b3;
-}
-
-.contact-form .clear-btn {
-    background-color: #dc3545;
-}
-
-.contact-form .clear-btn:hover {
-    background-color: #c82333;
-} */
 footer {
     background: #333;
     color: white;
@@ -380,4 +296,18 @@ footer {
 
 .footer-right .footer-icon {
     height: 18px;
+}
+
+.section-preview {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+
+.section-preview-container {
+    padding: 256px 0;
+    text-align: center;
 }
