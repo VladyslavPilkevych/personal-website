@@ -5,36 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Website</title>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/skillsSection.css">
     <link rel="stylesheet" href="styles/personalProjects.css">
     <link rel="stylesheet" href="styles/contactSection.css">
     <link rel="stylesheet" href="styles/bioSection.css">
+
 </head>
 
 <body>
-    <!-- Header -->
     <header class="header">
         <nav class="navbar">
             <div class="logo">My Website</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#experience">Work Experience</a></li>
             </ul>
-            <div class="burger-menu" id="burgerMenu">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
         </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
         <section id="home" class="hero">
             <div class="hero-container dark-bg">
                 <h1>Vladyslav Pilkevych</h1>
@@ -42,7 +44,6 @@
             </div>
         </section>
 
-        <!-- Image Section -->
         <section class="image-section">
             <div class="image-block img1">
                 <img src="./assets/images/am-me.jpg" alt="Image 1">
@@ -67,8 +68,6 @@
             </div>
         </section>
 
-
-        <!-- Skills Section -->
         <section id="skills" class="section-preview">
             <div class="section-preview-container dark-bg">
                 <h2>Skills Overview</h2>
@@ -170,7 +169,7 @@
             </div>
         </section>
 
-        <section id="about" class="section-preview">
+        <section id="portfolio" class="section-preview">
             <div class="section-preview-container dark-bg">
                 <h2>Portfolio Highlights</h2>
             </div>
@@ -235,7 +234,7 @@
                 </a>
         </section>
 
-        <section id='contact' class="contact">
+        <section id="contact" class="contact">
             <div class="contact-form">
                 <h2>Contact Me</h2>
                 <form id="emailForm">
@@ -278,7 +277,7 @@
         </section>
 
         <section class="bio-section">
-            <h2 class="bio-title">WORK EXPERIENCE</h2>
+            <h2 id="experience" class="bio-title">WORK EXPERIENCE</h2>
             <div class="bio-container">
                 <div class="job">
                     <div class="job-info">
@@ -286,25 +285,35 @@
                         <p class="bio-company">SOFTEC (Project: Slovenská sporiteľňa)</p>
                         <p class="bio-dates">01/2023 - Present, Slovakia, Bratislava</p>
                         <p class="bio-description">
-                            Provision of IT services and consulting, as well as the creation and implementation of complex
+                            Provision of IT services and consulting, as well as the creation and implementation of
+                            complex
                             integrated information system solutions.
                         </p>
                         <ul class="bio-tasks">
-                            <li><strong>Development and Implementation of User Interfaces:</strong> Created responsive and
+                            <li><strong>Development and Implementation of User Interfaces:</strong> Created responsive
+                                and
                                 interactive web pages using React and TypeScript.</li>
-                            <li><strong>Integration with Backend Services:</strong> Connected frontend components to backend
+                            <li><strong>Integration with Backend Services:</strong> Connected frontend components to
+                                backend
                                 APIs, ensuring seamless data flow and functionality.</li>
-                            <li><strong>API Service Generation:</strong> Generated and managed API services to facilitate
+                            <li><strong>API Service Generation:</strong> Generated and managed API services to
+                                facilitate
                                 efficient communication between frontend and backend systems.</li>
-                            <li><strong>Custom Component Library Development:</strong> Developed reusable components for a
+                            <li><strong>Custom Component Library Development:</strong> Developed reusable components for
+                                a
                                 custom component library to ensure consistency and efficiency across projects.</li>
-                            <li><strong>Performance Optimization:</strong> Optimized application performance by implementing
+                            <li><strong>Performance Optimization:</strong> Optimized application performance by
+                                implementing
                                 best practices and efficient coding techniques.</li>
-                            <li><strong>Bug Fixing and Code Refactoring:</strong> Identified and resolved bugs, and refactored
+                            <li><strong>Bug Fixing and Code Refactoring:</strong> Identified and resolved bugs, and
+                                refactored
                                 code to improve readability and maintainability.</li>
-                            <li><strong>Collaboration and Teamwork:</strong> Collaborated with cross-functional teams including
-                                analytics, backend developers, and product managers to deliver high-quality features.</li>
-                            <li><strong>Writing Tests for Java Spring Components:</strong> Developed and maintained unit and
+                            <li><strong>Collaboration and Teamwork:</strong> Collaborated with cross-functional teams
+                                including
+                                analytics, backend developers, and product managers to deliver high-quality features.
+                            </li>
+                            <li><strong>Writing Tests for Java Spring Components:</strong> Developed and maintained unit
+                                and
                                 integration tests for Java Spring components to ensure reliability and performance.</li>
                         </ul>
                     </div>
@@ -319,26 +328,38 @@
                         <p class="bio-company">DAN.IT Education</p>
                         <p class="bio-dates">05/2021 - 07/2022, Online</p>
                         <p class="bio-description">
-                            Intensive bootcamp focused on practical learning of web development, including HTML, CSS, JavaScript,
-                            and React. Engaged in multiple hands-on projects, both individually and in teams, to solidify technical
+                            Intensive bootcamp focused on practical learning of web development, including HTML, CSS,
+                            JavaScript,
+                            and React. Engaged in multiple hands-on projects, both individually and in teams, to
+                            solidify technical
                             skills and real-world application.
                         </p>
                         <ul class="bio-tasks">
-                            <li><strong>HTML, CSS, and JavaScript Proficiency:</strong> Developed strong foundational skills in
+                            <li><strong>HTML, CSS, and JavaScript Proficiency:</strong> Developed strong foundational
+                                skills in
                                 building responsive web pages and interactive elements.</li>
-                            <li><strong>React Development:</strong> Created dynamic user interfaces using React, implementing
+                            <li><strong>React Development:</strong> Created dynamic user interfaces using React,
+                                implementing
                                 components, hooks, and state management for complex front-end functionality.</li>
-                            <li><strong>Project Development:</strong> Completed over 4 projects, including solo and team-based
+                            <li><strong>Project Development:</strong> Completed over 4 projects, including solo and
+                                team-based
                                 initiatives, covering various aspects of front-end and back-end development.</li>
-                            <li><strong>Team Collaboration:</strong> Worked closely with other developers in a team setting to
-                                deliver high-quality projects, managing tasks using Git and GitHub for version control.</li>
-                            <li><strong>Mentorship and Guidance:</strong> Mentored junior developers by providing guidance, code
-                                reviews, and technical support to help them improve their skills and complete their projects.</li>
-                            <li><strong>Problem-Solving and Debugging:</strong> Assisted peers in troubleshooting code issues and
+                            <li><strong>Team Collaboration:</strong> Worked closely with other developers in a team
+                                setting to
+                                deliver high-quality projects, managing tasks using Git and GitHub for version control.
+                            </li>
+                            <li><strong>Mentorship and Guidance:</strong> Mentored junior developers by providing
+                                guidance, code
+                                reviews, and technical support to help them improve their skills and complete their
+                                projects.</li>
+                            <li><strong>Problem-Solving and Debugging:</strong> Assisted peers in troubleshooting code
+                                issues and
                                 debugging complex problems, enhancing their learning experience.</li>
-                            <li><strong>Soft Skills Development:</strong> Improved communication, collaboration, and leadership
+                            <li><strong>Soft Skills Development:</strong> Improved communication, collaboration, and
+                                leadership
                                 skills through teamwork and mentorship activities.</li>
-                            <li><strong>Node.js Development:</strong> Gained foundational skills in building server-side applications,
+                            <li><strong>Node.js Development:</strong> Gained foundational skills in building server-side
+                                applications,
                                 handling RESTful APIs, and managing backend logic.</li>
                         </ul>
                     </div>
@@ -349,8 +370,6 @@
                 </div>
             </div>
         </section>
-        
-
 
     </main>
 
@@ -358,12 +377,13 @@
         <div class="footer-left">
             © 2024 Vladyslav Pilkevych
         </div>
-        <div class="footer-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
+        <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#experience">Work Experience</a></li>
+        </ul>
         <div class="footer-right">
             <a href="https://www.instagram.com/vladyslavpilkevych/" target="_blank">
                 <img src="assets/icons/instagram_icon.png" alt="phone" class="footer-icon">

@@ -1,14 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const burgerMenu = document.getElementById('burgerMenu');
-    const navLinks = document.querySelector('.nav-links');
-
-    burgerMenu.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
     const lazyBlocks = document.querySelectorAll('.projects-block');
+    const lazyJobs = document.querySelectorAll('.job');
 
-    window.addEventListener('scroll', () => {
+    const handleScroll = () => {
         lazyBlocks.forEach(block => {
             const blockTop = block.getBoundingClientRect().top;
             const windowHeight = window.innerHeight;
@@ -17,8 +11,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 block.classList.add('visible');
             }
         });
-    });
+        lazyJobs.forEach(job => {
+            const jobTop = job.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (jobTop < windowHeight - 100) {
+                job.classList.add('visible');
+            }
+        });
+    };
+
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
 });
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const items = document.querySelectorAll('.skills-item');
@@ -36,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const y = Math.sin(angle) * radius;
 
         item.style.transform = `translate(${x}px, ${y}px) translateZ(0)`;
-        
+
         const randomSize = '0';
         // const borderRadius = Math.random() * 50 + 10 + 'px';
         const borderRadius = '50px';
@@ -57,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 detail.style.width = '0';
                 detail.style.height = '0';
                 detail.style.padding = '0';
-    
+
                 setTimeout(() => {
                     showSkillDescription(item, detail, detailImage, detailTitle, detailDescription);
                 }, 500);
@@ -139,23 +146,23 @@ scrollToTopBtn.onclick = function () {
     });
 };
 
-document.getElementById('emailForm').addEventListener('submit', function(event) {
+document.getElementById('emailForm').addEventListener('submit', function (event) {
     event.preventDefault();
-    
+
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
-    
+
     const mailtoLink = `mailto:your-email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
-    
+
     window.location.href = mailtoLink;
 
     const notification = document.getElementById('notification');
     notification.style.display = 'block';
 });
 
-document.getElementById('clearBtn').addEventListener('click', function() {
+document.getElementById('clearBtn').addEventListener('click', function () {
     document.getElementById('emailForm').reset();
     document.getElementById('notification').style.display = 'none';
 });

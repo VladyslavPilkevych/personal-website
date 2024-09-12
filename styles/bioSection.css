@@ -5,10 +5,11 @@
 }
 
 .bio-title {
-    font-size: 24px;
     margin-bottom: 20px;
     color: #333;
     text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
 }
 
 .bio-container {
@@ -27,7 +28,12 @@
     padding: 15px;
     background: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.3s ease,
+        opacity 0.8s ease;
+    opacity: 0;
+    transform: translateY(150px);
 }
 
 .job:hover {
@@ -102,4 +108,9 @@
 .bio-tasks strong {
     font-weight: bold;
     color: #333;
+}
+
+.job.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
