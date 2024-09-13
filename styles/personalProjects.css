@@ -19,7 +19,9 @@
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
     opacity: 0;
     transform: translateY(150px);
     display: flex;
@@ -63,4 +65,17 @@
 
 .projects-block a {
     margin: 5px 0;
+}
+
+@media (max-width: 1024px) {
+    .projects-block {
+        flex: 1 1 40%;
+    }
+
+    .projects-block img {
+        max-height: 250px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
 }

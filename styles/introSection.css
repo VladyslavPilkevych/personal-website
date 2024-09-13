@@ -1,0 +1,131 @@
+.image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 150px 20px 350px;
+    position: relative;
+    gap: 20px;
+    min-height: 600px;
+}
+
+.image-block {
+    position: absolute;
+    width: 500px;
+    border: 5px solid #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: rotate(-5deg);
+    transition:
+        transform 0.8s,
+        z-index 0.5s;
+    background-color: #fff;
+}
+
+.image-block img {
+    /* width: 500px; */
+    width: 100%;
+}
+
+.image-block p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25em;
+    font-style: italic;
+    color: #333;
+    border-left: 4px solid #007bff;
+    padding-left: 20px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    display: inline-block;
+    max-width: 80%;
+}
+
+/* .image-block:hover {
+    transform: scale(1.1) rotate(0);
+    z-index: 10;
+} */
+
+.img1 {
+    transform: translate(-20px, 60px) rotate(1deg);
+    z-index: 3;
+}
+
+.img1:hover {
+    transform: scale(1.4) translate(-20px, 60px) rotate(0);
+    z-index: 10;
+}
+
+.img2 {
+    transform: translate(350px, -80px) rotate(3deg);
+    z-index: 2;
+}
+
+.img2:hover {
+    transform: scale(1.4) translate(350px, -80px) rotate(0);
+    z-index: 10;
+}
+
+.img3 {
+    transform: translate(-290px, -75px) rotate(-5deg);
+    z-index: 2;
+}
+
+.img3:hover {
+    transform: scale(1.4) translate(-290px, -75px) rotate(0);
+    z-index: 10;
+}
+
+.img4 {
+    transform: translate(-250px, 270px) rotate(5deg);
+    z-index: 1;
+}
+
+.img4:hover {
+    transform: scale(1.4) translate(-250px, 200px) rotate(0);
+    z-index: 10;
+}
+
+.img5 {
+    transform: translate(350px, 300px) rotate(-4deg);
+    z-index: 2;
+}
+
+.img5:hover {
+    transform: scale(1.4) translate(350px, 200px) rotate(0);
+    z-index: 10;
+}
+
+@media (max-width: 1800px) {
+    .img1:hover {
+        transform: scale(1.2) translate(-20px, 60px) rotate(0);
+    }
+    .img2:hover {
+        transform: scale(1.2) translate(350px, -80px) rotate(0);
+    }
+    .img3:hover {
+        transform: scale(1.2) translate(-290px, -75px) rotate(0);
+    }
+    .img4:hover {
+        transform: scale(1.2) translate(-250px, 200px) rotate(0);
+    }
+    .img5:hover {
+        transform: scale(1.2) translate(350px, 200px) rotate(0);
+    }
+}
+
+@media (max-width: 1500px) {
+    .image-section {
+        position: static;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 150px 20px;
+    }
+    .image-block {
+        position: static;
+        transform: none;
+        z-index: 1;
+        min-width: 45%;
+    }
+    .image-block:hover {
+        transform: none;
+        z-index: 1;
+    }
+}
