@@ -116,7 +116,7 @@
         position: static;
         justify-content: space-around;
         flex-wrap: wrap;
-        padding: 150px 20px;
+        padding: 50px 20px;
     }
     .image-block {
         position: static;

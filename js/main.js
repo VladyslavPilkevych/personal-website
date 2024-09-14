@@ -29,6 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const items = document.querySelectorAll('.skills-item');
+    const skillsItemContainers = [...document.getElementsByClassName("skills-item")];
+    if (window.innerWidth <= 768) {
+        items.forEach((item, index) => {
+            const skillTitle = document.createElement("p");
+            skillTitle.innerText = item.getAttribute('data-title');
+            skillsItemContainers[index].appendChild(skillTitle);
+        });
+        return;
+    }
     const detail = document.querySelector('.skill-detail');
     const detailImage = detail.querySelector('.skill-image');
     const detailTitle = detail.querySelector('.skill-title');
@@ -167,3 +176,12 @@ document.getElementById('clearBtn').addEventListener('click', function () {
     document.getElementById('notification').style.display = 'none';
 });
 
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-links");
+
+hamburger.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+}

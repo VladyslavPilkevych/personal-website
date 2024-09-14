@@ -14,10 +14,10 @@ body {
 header {
     position: fixed;
     top: 0;
+    padding: 24px;
     width: 100%;
     background-color: #333;
     color: white;
-    padding: 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,28 +26,47 @@ header {
 
 .navbar {
     display: flex;
+    width: 100%;
 }
 
-.navbar .nav-links {
+.logo {
+    margin-right: 50px;
+}
+
+.nav-links {
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.navbar .nav-links li {
+.nav-links li {
     margin-left: 20px;
 }
 
-.navbar .nav-links a {
+.nav-links a {
     text-decoration: none;
     color: white;
     font-weight: bold;
     transition: transform 0.3s ease;
 }
 
-.navbar .nav-links a:hover {
+.nav-links a:hover {
     transform: translateY(-2px);
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: white;
 }
 
 /* Hero Section */
@@ -118,6 +137,7 @@ header {
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: opacity 0.3s ease;
+    z-index: 100;
 }
 
 .scroll-to-top:hover {
@@ -207,9 +227,74 @@ footer {
     height: 18px;
 }
 
+@media (max-width: 1440px) {
+    .section-preview-container {
+        padding: 175px 0;
+    }
+}
+
 @media (max-width: 1024px) {
     .section-preview-container {
         padding: 125px 0;
         font-size: 2.5rem;
+    }
+
+    footer {
+        flex-direction: column-reverse;
+        gap: 24px;
+    }
+    .footer-right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .logo {
+        margin-right: 0;
+    }
+
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 4.5rem;
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 0;
+        background-color: #333;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+    .nav-links.active {
+        left: 0;
+    }
+    .nav-links li {
+        margin-left: 0;
+    }
+    .nav-links li:not(:last-child) {
+        padding-bottom: 10px;
+        box-shadow: 0 1px 0 white;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 }
