@@ -15,6 +15,6 @@
 <p>
     <a href="https://www.instagram.com/vladyslavpilkevych/" target="_blank">Instagram</a><br>
     <a href="https://www.linkedin.com/in/vladyslav-pilkevych-4409b5236/" target="_blank">LinkedIn</a><br>
-    <a href="tel:+421951945048">Phone</a><br>
+    <a href="tel:+421951945048">Phone: +421951945048</a><br>
     <a href="mailto:vladyslavpilkevych2004@gmail.com" target="_blank">Gmail</a>
 </p>
