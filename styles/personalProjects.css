@@ -2,6 +2,24 @@
   background-image: url("../assets/images/bg-sky.jpg");
 }
 
+.animated-portfolio-title {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.space {
+    width: 0.75rem; /* Adjust space width as needed */
+}
+
+.text {
+    font-family: "Roboto", sans-serif;
+    font-variation-settings: "wght" var(--font-weight, 100);
+    font-size: 4rem;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
 :root {
   /* Palette (stricter dark/light contrast) */
   --bg-1: #0b0f14; /* page background darkest */
