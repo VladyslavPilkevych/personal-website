@@ -116,6 +116,7 @@ footer {
     justify-content: space-around;
     align-items: center;
     border-top: 1px solid #444;
+    width: 100%;
 }
 
 .footer-left {
