@@ -69,43 +69,6 @@ header {
     background-color: white;
 }
 
-/* Hero Section */
-.hero {
-    background-image: url('../assets/images/bg.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    margin-top: 60px;
-    text-align: center;
-    color: white;
-}
-
-.hero-container {
-    padding: 100px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 24px;
-}
-
-.dark-bg {
-    /* width: 100%;
-    height: 100%; */
-    background-color: rgba(0, 0, 0, 0.5);
-    font-size: 3rem;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.hero h1 {
-    font-size: 3rem;
-}
-
-.hero p {
-    font-size: 1.5rem;
-}
-
 .section-preview {
     width: 100%;
     background-repeat: no-repeat;

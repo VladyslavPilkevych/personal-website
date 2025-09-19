@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/introSection.css">
     <link rel="stylesheet" href="styles/skillsSection.css">
     <link rel="stylesheet" href="styles/personalProjects.css">
@@ -25,6 +26,7 @@
 
 <body>
     <header class="header">
+
         <nav class="navbar">
             <div class="logo">CV Website</div>
             <ul class="nav-links">
@@ -43,13 +45,15 @@
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <div class="hero-container dark-bg">
+        <section id="home" class="intro-section">
+            <canvas id="webgl-canvas"></canvas>
+            <div class="hero">
                 <h1>Vladyslav Pilkevych</h1>
-                <p>This is my personal website.</p>
+                <h2>This is my personal website.</h2>
             </div>
         </section>
 
+        <!-- // TODO  -->
         <section class="image-section">
             <div class="image-block img1">
                 <img src="./assets/images/am-me.jpg" alt="Image 1">
@@ -296,25 +300,38 @@
                             <p class="bio-company">Innovatrics (Project: ABIS)</p>
                             <p class="bio-dates">10/2024 - Present, Slovakia, Bratislava</p>
                             <p class="bio-description">
-                                Innovatrics develops high-performance biometric solutions used by governments, businesses and law enforcement agencies to keep people safe, onboard new customers, and build institutional trust.
+                                Innovatrics develops high-performance biometric solutions used by governments,
+                                businesses and law enforcement agencies to keep people safe, onboard new customers, and
+                                build institutional trust.
                             </p>
                         </div>
                         <div class="job-media">
                             <img src="./assets/images/innovatrics_500x200.png" alt="Company Logo" class="bio-image">
-                            <a href="https://www.innovatrics.com/" target="_blank" class="bio-link-button">Visit Innovatrics</a>
+                            <a href="https://www.innovatrics.com/" target="_blank" class="bio-link-button">Visit
+                                Innovatrics</a>
                         </div>
-                    </div>                    
+                    </div>
                     <ul class="bio-tasks">
                         <h2>Main Duties:</h2>
                         <li><strong>UI Development with React and TypeScript:</strong>
-                            Developed and maintained complex user interfaces using React and TypeScript, ensuring clean, modular, and scalable code.
+                            Developed and maintained complex user interfaces using React and TypeScript, ensuring clean,
+                            modular, and scalable code.
                         </li>
-                        <li><strong>State Management Optimization:</strong> Implemented state management with tools like Redux or React Context, optimizing component re-renders and improving application performance.</li>
-                        <li><strong>Performance Optimization:</strong> Enhanced application performance by optimizing assets, managing component lifecycles, and implementing lazy loading for data-heavy components.</li>
-                        <li><strong>End-to-End Testing with Playwright:</strong> Wrote end-to-end tests and UI automation tests using Playwright, achieving high test coverage and maintaining reliability of core user flows.</li>
-                        <li><strong>Code Review and Best Practices Enforcement:</strong> Conducted code reviews for team members, enforcing best practices, coding standards, and strict TypeScript typing.</li>
-                        <li><strong>Design Translation from Figma:</strong> Converted designs from Figma into pixel-perfect, responsive components, closely following design specifications to maintain visual fidelity.</li>
-                        
+                        <li><strong>State Management Optimization:</strong> Implemented state management with tools like
+                            Redux or React Context, optimizing component re-renders and improving application
+                            performance.</li>
+                        <li><strong>Performance Optimization:</strong> Enhanced application performance by optimizing
+                            assets, managing component lifecycles, and implementing lazy loading for data-heavy
+                            components.</li>
+                        <li><strong>End-to-End Testing with Playwright:</strong> Wrote end-to-end tests and UI
+                            automation tests using Playwright, achieving high test coverage and maintaining reliability
+                            of core user flows.</li>
+                        <li><strong>Code Review and Best Practices Enforcement:</strong> Conducted code reviews for team
+                            members, enforcing best practices, coding standards, and strict TypeScript typing.</li>
+                        <li><strong>Design Translation from Figma:</strong> Converted designs from Figma into
+                            pixel-perfect, responsive components, closely following design specifications to maintain
+                            visual fidelity.</li>
+
                         <li><strong>Collaboration and Teamwork:</strong> Collaborated with cross-functional teams
                             including analytics, backend developers, and product managers to deliver high-quality
                             features.</li>
@@ -337,7 +354,7 @@
                             <img src="./assets/images/softec_logo.jpg" alt="Company Logo" class="bio-image">
                             <a href="https://www.softec.sk/" target="_blank" class="bio-link-button">Visit SOFTEC</a>
                         </div>
-                    </div>                    
+                    </div>
                     <ul class="bio-tasks">
                         <h2>Main Duties:</h2>
                         <li><strong>Development and Implementation of User Interfaces:</strong> Created responsive and
@@ -452,6 +469,60 @@
     <button id="scrollToTopBtn" class="scroll-to-top" title="Go to top">↑</button>
 
     <script src="js/main.js"></script>
+    <!-- <script src="js/header.js"></script> -->
+    <!-- <script type="module">
+        import Grid1Background from 'https://cdn.jsdelivr.net/npm/threejs-components@0.0.16/build/backgrounds/grid1.cdn.min.js';
+        const bg = Grid1Background(document.getElementById('webgl-canvas'));
+    </script> -->
+    
+
+  <script type="module" src="js/animatedBackground.js"></script>
+
+  <!-- <script type="module">
+    import Grid1Background from 'https://cdn.jsdelivr.net/npm/threejs-components@0.0.16/build/backgrounds/grid1.cdn.min.js';
+
+    const canvas  = document.getElementById('webgl-canvas');
+    const section = document.querySelector('.intro-section');
+
+    // Initialize the animated grid background on our canvas
+    const bg = Grid1Background(canvas);
+
+    // Keep canvas resolution synced with its displayed size (good practice)
+    const resize = () => {
+      // Ensure the canvas renders at its displayed CSS size (handles DPR internally)
+      const rect = section.getBoundingClientRect();
+      canvas.width  = rect.width;
+      canvas.height = rect.height;
+      if (bg?.onWindowResize) bg.onWindowResize(); // component handles internal resize
+    };
+    // Resize on load and when layout changes
+    window.addEventListener('resize', resize);
+    // Run once after first paint to ensure correct measurements
+    requestAnimationFrame(resize);
+
+    // Click anywhere in the section to randomize colors/lights
+    section.addEventListener('click', () => {
+      // Randomize grid palette (3 colors)
+      bg.grid.setColors([
+        0xffffff * Math.random(),
+        0xffffff * Math.random(),
+        0xffffff * Math.random()
+      ]);
+
+      // Randomize lights
+      bg.grid.light1.color.set(0xffffff * Math.random());
+      bg.grid.light1.intensity = 500 + Math.random() * 1000;
+
+      bg.grid.light2.color.set(0xffffff * Math.random());
+      bg.grid.light2.intensity = 250 + Math.random() * 250;
+    });
+
+    // Optional: performance/cleanup when navigating away
+    window.addEventListener('beforeunload', () => {
+      if (bg?.renderer?.dispose) bg.renderer.dispose();
+      window.removeEventListener('resize', resize);
+    });
+  </script> -->
 </body>
 
 </html>
