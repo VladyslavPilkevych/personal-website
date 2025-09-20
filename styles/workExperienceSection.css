@@ -1,0 +1,206 @@
+.bio-section {
+  font-family: Arial, sans-serif;
+}
+
+.bio-title {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.container {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.title {
+  font-size: 38px;
+  color: #616161;
+  font-style: italic;
+  font-weight: 800;
+  margin: 24px 0;
+  text-align: center;
+}
+
+.timeline {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 5px 25px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline .swiper-container {
+  height: 800px;
+  width: 100%;
+  position: relative;
+}
+
+.timeline .swiper-slide {
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.timeline .swiper-slide::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  /* right: -115%; */
+  bottom: -10%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: -230px 0 150px 60vw rgba(0, 0, 0, 0.7);
+  border-radius: 100%;
+}
+
+.timeline .swiper-slide-content {
+  position: absolute;
+  text-align: center;
+  width: 70%;
+  /* max-width: 310px; */
+  right: 60%;
+  top: 13%;
+  transform: translate(50%, 0);
+  font-size: 12px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-year {
+  display: block;
+  font-style: italic;
+  font-size: 42px;
+  margin-bottom: 30px;
+  color: #d4a024;
+  font-weight: 300;
+  opacity: 0;
+  transform: translate3d(20px, 0, 0);
+  transition: 0.2s ease 0.4s;
+}
+
+.timeline-title {
+  font-weight: 800;
+  font-size: 34px;
+  margin: 0 0 20px;
+  opacity: 0;
+  transform: translate3d(20px, 0, 0);
+  transition: 0.2s ease 0.5s;
+  width: auto;
+}
+
+.timeline-text {
+  line-height: 1.5;
+  opacity: 0;
+  transform: translate3d(20px, 0, 0);
+  transition: 0.2s ease 0.6s;
+  width: 80%;
+  font-size: 14px;
+}
+
+.timeline-achievements {
+  text-align: left;
+  margin-top: 20px;
+  padding-left: 10%;
+  opacity: 0;
+  transform: translate3d(20px, 0, 0);
+  transition: 0.5s ease 0.6s;
+  /* list-style-type: none; */
+  list-style-type: circle;
+}
+
+.timeline-achievements-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.timeline-achievements li {
+  margin: 10px;
+  font-size: 14px;
+}
+
+.swiper-slide-active .timeline-year,
+.swiper-slide-active .timeline-title,
+.swiper-slide-active .timeline-text,
+.swiper-slide-active .timeline-achievements {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.swiper-pagination {
+  right: 15% !important;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+  z-index: 1;
+}
+
+.swiper-pagination-bullet {
+  background: transparent;
+  color: #d4a024;
+  margin: 15px 0 !important;
+  position: relative;
+  opacity: 1;
+  width: auto;
+}
+
+.swiper-pagination-bullet::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: -32px;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background: #d4a024;
+  transform: scale(0);
+  transition: 0.2s;
+}
+
+.swiper-pagination-bullet-active::before {
+  transform: scale(1);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background-size: 20px 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.swiper-button-prev {
+  left: 8%;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2027%2044'%3E%3Cpath%20d='M0,22L22,0l2.1,2.1L4.2,22l19.9,19.9L22,44L0,22L0,22L0,22z'%20fill='%23d4a024'/%3E%3C/svg%3E");
+}
+
+.swiper-button-next {
+  right: 8%;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2027%2044'%3E%3Cpath%20d='M27,22L27,22L5,44l-2.1-2.1L22.8,22L2.9,2.1L5,0L27,22L27,22z'%20fill='%23d4a024'/%3E%3C/svg%3E");
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-pagination {
+    display: flex;
+  }
+}
