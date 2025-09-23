@@ -37,5 +37,9 @@ h1, h2 {
   /* z-index here isn't needed anymore */
 }
 
+.hero h1 {
+  text-align: center;
+}
+
 h1 { font-size: 80px; font-weight: 700; }
 h2 { font-size: 44px; font-weight: 500; }

@@ -22,10 +22,6 @@
     <link rel="stylesheet" href="styles/contactSection.css">
     <!-- <link rel="stylesheet" href="styles/bioSection.css"> -->
 
-
-    <script src="./js/libs/gsap.min.js"></script>
-    <script src="./js/libs/swiper.min.js"></script>
-
     <link rel="stylesheet" href="https://unpkg.com/swiper@3.4.2/dist/css/swiper.min.css" />
     <link rel="stylesheet" href="styles/workExperienceSection.css">
 </head>
@@ -483,7 +479,7 @@
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
                             <!-- Slide 1 -->
-                            <div class="swiper-slide" style="background-image:url('../assets/images/danItOffice.jpg')"
+                            <div class="swiper-slide" style="background-image:url('./assets/images/danItOffice.jpg')"
                                 data-year="2021 - 2022">
                                 <div class="swiper-slide-content">
                                     <span class="timeline-year">2021 - 2022</span>
@@ -544,7 +540,7 @@
                             </div>
 
                             <!-- Slide 2 -->
-                            <div class="swiper-slide" style="background-image:url('../assets/images/softecOffice.jpg')"
+                            <div class="swiper-slide" style="background-image:url('./assets/images/softecOffice.jpg')"
                                 data-year="2023 - 2024">
                                 <div class="swiper-slide-content">
                                     <span class="timeline-year">2023 - 2024</span>
@@ -594,7 +590,7 @@
 
                             <!-- Slide 3 -->
                             <div class="swiper-slide"
-                                style="background-image:url('../assets/images/innovatricsOffice.jpg')"
+                                style="background-image:url('./assets/images/innovatricsOffice.jpg')"
                                 data-year="2024 - now">
                                 <div class="swiper-slide-content">
                                     <span class="timeline-year">2024 - now</span>
@@ -850,7 +846,16 @@
         </div>
     </div>
 
+
+    <script src="./js/libs/gsap.min.js"></script>
+    <script src="./js/libs/swiper.min.js"></script>
+
     <script src="js/main.js"></script>
+    <script type="module" src="js/animatedBackground.js"></script>
+    <script src="./js/animatedPortfolioTitle.js"></script>
+    <script src="./js/swiperWorkExperience.js"></script>
+    <script src="./js/animatedGithubCards.js"></script>
+
     <!-- <script src="js/header.js"></script> -->
     <!-- <script type="module">
         import Grid1Background from 'https://cdn.jsdelivr.net/npm/threejs-components@0.0.16/build/backgrounds/grid1.cdn.min.js';
@@ -858,7 +863,6 @@
     </script> -->
 
 
-    <script type="module" src="js/animatedBackground.js"></script>
 
     <!-- <script type="module">
     import Grid1Background from 'https://cdn.jsdelivr.net/npm/threejs-components@0.0.16/build/backgrounds/grid1.cdn.min.js';
@@ -906,9 +910,6 @@
     });
   </script> -->
 
-    <script src="./js/animatedPortfolioTitle.js"></script>
-
-    <script src="./js/swiperWorkExperience.js"></script>
     <!-- <script>
       const timeline = gsap.timeline({ repeat: -1 });
       const chars = document.querySelectorAll(".text");
@@ -926,7 +927,6 @@
           1
         );
     </script> -->
-    <script src="./js/animatedGithubCards.js"></script>
     <noscript>Enable JavaScript to see the cursor glow effect.</noscript>
 </body>
 
