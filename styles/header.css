@@ -38,7 +38,7 @@ h1, h2 {
 }
 
 .hero h1 {
-  text-align: center;
+  text-align: center !important;
 }
 
 h1 { font-size: 80px; font-weight: 700; }
