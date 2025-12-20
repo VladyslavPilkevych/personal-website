@@ -22,18 +22,19 @@
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@3.4.2/dist/css/swiper.min.css" />
     <link rel="stylesheet" href="styles/workExperienceSection.css">
+
+    <link rel="stylesheet" href="styles/mobile.css">
 </head>
 
 <body>
     <header class="header">
-
         <nav class="navbar">
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#experience">Work Experience</a></li>
+                <li id="home-link"><a href="#home">Home</a></li>
+                <li id="skills-link"><a href="#skills">Skills</a></li>
+                <li id="portfolio-link"><a href="#portfolio">Portfolio</a></li>
+                <li id="contact-link"><a href="#contact">Contact</a></li>
+                <li id="experience-link"><a href="#experience">Work Experience</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -52,8 +53,7 @@
             </div>
         </section>
 
-        <section style="padding: 50px 0;">
-            <div class="gallery-container">
+        <section class="gallery-container">
                 <div class="galleryCardItem">
                     <div class="card__inner">
                         <picture>
@@ -271,6 +271,7 @@
                     <div class="text">t</div>
                     <div class="text">s</div>
                 </div>
+                <h2 class="mobile-title">Portfolio</h2>
             </div>
         </section>
 
@@ -411,7 +412,7 @@
             </div>
         </section>
 
-        <section class="bio-section">
+        <section id="experience" class="bio-section">
             <div id="work-experience-title-container">
                 <p id="work-experience-title">
                     <span id="animated-text-fill">
