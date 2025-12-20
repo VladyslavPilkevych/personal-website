@@ -9,7 +9,6 @@
     tx = p.clientX; ty = p.clientY;
   };
 
-  // Pointer covers mouse + pen + touch (fallbacks included)
   window.addEventListener('pointermove', onMove, { passive: true });
   window.addEventListener('mousemove', onMove, { passive: true });
   window.addEventListener('touchmove', onMove, { passive: true });

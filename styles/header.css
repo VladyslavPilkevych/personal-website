@@ -5,20 +5,17 @@
   overflow: hidden;
 }
 
-/* Put the canvas behind */
 #webgl-canvas {
-  position: absolute;   /* or fixed, if you want full-viewport, but then keep z-index low */
+  position: absolute;
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  /* pointer-events: none; /* optional: let clicks go through */
-  pointer-events: auto; /* allow it to capture clicks */
+  pointer-events: auto;
 }
 
-/* Put the text above */
 .hero {
   position: relative;
-  z-index: 1;           /* make sure it sits above the canvas */
+  z-index: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -26,7 +23,8 @@
   justify-content: center;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin: 0;
   padding: 0;
   color: white;
@@ -34,12 +32,17 @@ h1, h2 {
   text-shadow: 0 0 20px rgba(0, 0, 0, 1);
   line-height: 100%;
   user-select: none;
-  /* z-index here isn't needed anymore */
 }
 
 .hero h1 {
   text-align: center !important;
 }
 
-h1 { font-size: 80px; font-weight: 700; }
-h2 { font-size: 44px; font-weight: 500; }
+h1 {
+  font-size: 80px;
+  font-weight: 700;
+}
+h2 {
+  font-size: 44px;
+  font-weight: 500;
+}

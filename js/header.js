@@ -2,9 +2,8 @@ import Grid1Background from 'https://cdn.jsdelivr.net/npm/threejs-components@0.0
 
 const bg = Grid1Background(document.getElementById('webgl-canvas'))
 
-// listen for clicks on the canvas
 const canvas = document.getElementById('webgl-canvas')
-canvas.style.pointerEvents = 'auto' // allow it to capture clicks
+canvas.style.pointerEvents = 'auto'
 
 canvas.addEventListener('click', () => {
   bg.grid.setColors([
