@@ -6,7 +6,7 @@ It showcases my professional experience, technical skills, selected projects, an
 ## Live Website
 
 **Visit here:**  
-https://vladyslavpilkevych.github.io/personal-website/
+https://vladyslavpilkevych.com/
 
 ## About Me
 
