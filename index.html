@@ -1417,42 +1417,82 @@
         statusBox.innerHTML = html;
       };
 
-      form.addEventListener("submit", (e) => {
+      const setSendingUI = () => {
+        submitBtn.disabled = true;
+        submitBtn.dataset.originalText = submitBtn.textContent;
+        submitBtn.textContent = "Sending...";
+        showStatus(
+          '<div class="text-slate-500">&gt; contact_me.exe</div>' +
+            '<div class="mt-1">&gt; validating_input... <span class="text-primary">OK</span></div>' +
+            '<div class="mt-1">&gt; sending_request... <span class="text-primary animate-blink">_</span></div>',
+        );
+      };
+
+      const setSuccessUI = () => {
+        showStatus(
+          '<div class="text-slate-500">&gt; contact_me.exe</div>' +
+            '<div class="mt-1">&gt; message_sent: <span class="text-primary">SUCCESS</span></div>' +
+            '<div class="mt-1 text-slate-400">Thanks! I will reply to your email.</div>',
+        );
+      };
+
+      const setErrorUI = (msg) => {
+        showStatus(
+          '<div class="text-slate-500">&gt; contact_me.exe</div>' +
+            `<div class="mt-1">&gt; error: <span class="text-red-400">${msg}</span></div>` +
+            '<div class="mt-1 text-slate-400">Try again in a minute.</div>',
+        );
+      };
+
+      const resetButton = () => {
+        submitBtn.disabled = false;
+        submitBtn.textContent =
+          submitBtn.dataset.originalText || "Send Message";
+      };
+
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
         const message = document.getElementById("message").value.trim();
 
-        submitBtn.disabled = true;
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = "Sending...";
+        if (!name || !email || !message) {
+          setErrorUI("missing_fields");
+          return;
+        }
 
-        showStatus(
-          '<div class="text-slate-500">&gt; contact_me.exe</div>' +
-            '<div class="mt-1">&gt; validating_input... <span class="text-primary">OK</span></div>' +
-            '<div class="mt-1">&gt; preparing_message... <span class="text-primary">OK</span></div>' +
-            '<div class="mt-1">&gt; opening_mail_client... <span class="text-primary animate-blink">_</span></div>',
-        );
+        setSendingUI();
 
-        const subject = encodeURIComponent(`Portfolio message from ${name}`);
-        const body = encodeURIComponent(
-          `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n`,
-        );
-
-        setTimeout(() => {
-          window.location.href = `mailto:vladyslav.pilkevych@gmail.com?subject=${subject}&body=${body}`;
-
-          showStatus(
-            '<div class="text-slate-500">&gt; contact_me.exe</div>' +
-              '<div class="mt-1">&gt; message_ready: <span class="text-primary">SUCCESS</span></div>' +
-              '<div class="mt-1 text-slate-400">Your mail app should open now.</div>',
+        try {
+          const res = await fetch(
+            "https://vladyslavpilkevych.com/api/contact",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ name, email, message }),
+            },
           );
 
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalText;
+          let data = null;
+          try {
+            data = await res.json();
+          } catch {}
+
+          if (!res.ok || !data?.ok) {
+            const err = data?.error || `http_${res.status}`;
+            setErrorUI(err);
+            resetButton();
+            return;
+          }
+
+          setSuccessUI();
           form.reset();
-        }, 700);
+          resetButton();
+        } catch {
+          setErrorUI("network_error");
+          resetButton();
+        }
       });
     </script>
   </body>
