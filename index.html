@@ -1387,6 +1387,26 @@
         </div>
       </footer>
     </div>
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
+    <div id="ts"></div>
+    <input
+      id="website"
+      type="text"
+      autocomplete="off"
+      tabindex="-1"
+      style="
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+        height: 1px;
+        width: 1px;
+        opacity: 0;
+      "
+    />
     <script>
       const bar = document.getElementById("boot-bar");
       const status = document.getElementById("boot-status");
@@ -1411,6 +1431,28 @@
       const form = document.getElementById("contactForm");
       const statusBox = document.getElementById("contactStatus");
       const submitBtn = document.getElementById("contactSubmit");
+
+      const TURNSTILE_SITE_KEY = "PASTE_YOUR_SITE_KEY";
+
+      let tsWidgetId = null;
+
+      window.addEventListener("load", () => {
+        if (window.turnstile && tsWidgetId === null) {
+          tsWidgetId = turnstile.render("#ts", {
+            sitekey: TURNSTILE_SITE_KEY,
+            size: "invisible",
+          });
+        }
+      });
+
+      async function getTurnstileToken() {
+        if (!window.turnstile || tsWidgetId === null) return "";
+        const token = await turnstile.execute(tsWidgetId, {
+          action: "contact",
+        });
+        turnstile.reset(tsWidgetId);
+        return token || "";
+      }
 
       const showStatus = (html) => {
         statusBox.classList.remove("hidden");
@@ -1465,12 +1507,24 @@
         setSendingUI();
 
         try {
+          const website =
+            document.getElementById("website")?.value?.trim() || "";
+          const ts = Date.now();
+          const turnstileToken = await getTurnstileToken();
+
           const res = await fetch(
             "https://vladyslavpilkevych.com/api/contact",
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ name, email, message }),
+              body: JSON.stringify({
+                name,
+                email,
+                message,
+                website,
+                ts,
+                turnstileToken,
+              }),
             },
           );
 
