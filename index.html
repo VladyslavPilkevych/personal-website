@@ -3,7 +3,10 @@
 <html class="light" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="google-site-verification" content="ebAsCvS-wQSGpxWCpVhgy0l-XLiB6W_pR27GtO0UOcg" />
+    <meta
+      name="google-site-verification"
+      content="ebAsCvS-wQSGpxWCpVhgy0l-XLiB6W_pR27GtO0UOcg"
+    />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Vladyslav Pilkevych — Frontend Engineer | React & TypeScript</title>
     <meta
@@ -1411,20 +1414,6 @@
       defer
     ></script>
     <div id="ts"></div>
-    <input
-      id="website"
-      type="text"
-      autocomplete="off"
-      tabindex="-1"
-      style="
-        position: absolute;
-        left: -9999px;
-        top: -9999px;
-        height: 1px;
-        width: 1px;
-        opacity: 0;
-      "
-    />
     <script>
       const bar = document.getElementById("boot-bar");
       const status = document.getElementById("boot-status");
@@ -1446,6 +1435,8 @@
 
       tick();
 
+      const formLoadedAt = Date.now();
+
       const form = document.getElementById("contactForm");
       const statusBox = document.getElementById("contactStatus");
       const submitBtn = document.getElementById("contactSubmit");
@@ -1453,23 +1444,52 @@
       const TURNSTILE_SITE_KEY = "0x4AAAAAACjXiArJpOSFD7JB";
 
       let tsWidgetId = null;
+      let tsResolve = null;
 
       window.addEventListener("load", () => {
         if (window.turnstile && tsWidgetId === null) {
           tsWidgetId = turnstile.render("#ts", {
             sitekey: TURNSTILE_SITE_KEY,
             size: "invisible",
+            callback: (token) => {
+              if (tsResolve) {
+                const r = tsResolve;
+                tsResolve = null;
+                r(token || "");
+              }
+            },
+            "error-callback": () => {
+              if (tsResolve) {
+                const r = tsResolve;
+                tsResolve = null;
+                r("");
+              }
+            },
+            "expired-callback": () => {
+              if (tsResolve) {
+                const r = tsResolve;
+                tsResolve = null;
+                r("");
+              }
+            },
           });
         }
       });
 
-      async function getTurnstileToken() {
-        if (!window.turnstile || tsWidgetId === null) return "";
-        const token = await turnstile.execute(tsWidgetId, {
-          action: "contact",
+      function getTurnstileToken() {
+        if (!window.turnstile || tsWidgetId === null)
+          return Promise.resolve("");
+        return new Promise((resolve) => {
+          tsResolve = resolve;
+          turnstile.execute(tsWidgetId);
+          setTimeout(() => {
+            if (tsResolve) {
+              const r = tsResolve;
+              tsResolve = null;
+              r("");
+            }
+          }, 8000);
         });
-        turnstile.reset(tsWidgetId);
-        return token || "";
       }
 
       const showStatus = (html) => {
@@ -1529,6 +1549,12 @@
             document.getElementById("website")?.value?.trim() || "";
           const ts = formLoadedAt;
           const turnstileToken = await getTurnstileToken();
+
+          if (!turnstileToken) {
+            setErrorUI("turnstile_no_token");
+            resetButton();
+            return;
+          }
 
           const res = await fetch(
             "https://vladyslavpilkevych.com/api/contact",
